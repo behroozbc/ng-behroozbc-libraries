@@ -29,4 +29,7 @@ describe('AdditionalValidators', () => {
     expect(AdditionalValidators.PhoneNumber(new FormControl('0939708257s'))).not.toBeNull();
     expect(AdditionalValidators.PhoneNumber(new FormControl('0939708257س'))).not.toBeNull();
   });
+  it('Validate Phone Number empty string', () => {
+    expect(AdditionalValidators.PhoneNumber(new FormControl(''))).toBeNull();
+  });
 });
