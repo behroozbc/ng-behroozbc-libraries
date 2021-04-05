@@ -1,4 +1,3 @@
-import { TestBed } from '@angular/core/testing';
 import { FormControl } from '@angular/forms';
 
 import { AdditionalValidators } from './additional-validators';
@@ -29,7 +28,37 @@ describe('AdditionalValidators', () => {
     expect(AdditionalValidators.PhoneNumber(new FormControl('0939708257s'))).not.toBeNull();
     expect(AdditionalValidators.PhoneNumber(new FormControl('0939708257س'))).not.toBeNull();
   });
+  it('Not Validate Phone Number have phoneNumber object', () => {
+    expect(AdditionalValidators.PhoneNumber(new FormControl('0931'))).toBeDefined('phoneNumber');;
+  });
   it('Validate Phone Number empty string', () => {
     expect(AdditionalValidators.PhoneNumber(new FormControl(''))).toBeNull();
+  });
+  it('Validate CheckIsASCII empty string', () => {
+    expect(AdditionalValidators.CheckIsASCII(new FormControl(''))).toBeNull();
+  });
+  it('Validate CheckIsASCII persian alphabet string', () => {
+    expect(AdditionalValidators.CheckIsASCII(new FormControl('سسسی'))).not.toBeNull();
+  });
+  it('Validate CheckIsASCII persian number string', () => {
+    expect(AdditionalValidators.CheckIsASCII(new FormControl('۱۱۲۳۲۱۲۳'))).not.toBeNull();
+  });
+  it('Validate CheckIsASCII persian mix string', () => {
+    expect(AdditionalValidators.CheckIsASCII(new FormControl('۱۱۲۳@er$۲۱۲۳'))).not.toBeNull();
+  });
+  it('Validate CheckIsASCII defined ascii object', () => {
+    expect(AdditionalValidators.CheckIsASCII(new FormControl('۱۱۲۳۲۱۲۳'))).toBeDefined('ascii');
+  });
+  it('Validate CheckIsASCII number string', () => {
+    expect(AdditionalValidators.CheckIsASCII(new FormControl('1234'))).toBeNull();
+  });
+  it('Validate CheckIsASCII alpabet string', () => {
+    expect(AdditionalValidators.CheckIsASCII(new FormControl('aaazztyghf'))).toBeNull();
+  });
+  it('Validate CheckIsASCII symbole string', () => {
+    expect(AdditionalValidators.CheckIsASCII(new FormControl('@#45*$!)('))).toBeNull();
+  });
+  it('Validate CheckIsASCII mix string', () => {
+    expect(AdditionalValidators.CheckIsASCII(new FormControl('sdsad4355443sasdasd@dff$$ssd'))).toBeNull();
   });
 });

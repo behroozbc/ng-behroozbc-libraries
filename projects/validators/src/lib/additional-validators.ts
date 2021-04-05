@@ -1,4 +1,4 @@
-import { AbstractControl } from "@angular/forms";
+import { AbstractControl, FormGroup } from "@angular/forms";
 
 export class AdditionalValidators{
   static PhoneNumber(control: AbstractControl) {
@@ -6,5 +6,8 @@ export class AdditionalValidators{
       return null;
     }
     return { phoneNumber: true };
+  }
+  static CheckIsASCII(control: AbstractControl) {
+    return /^[\x00-\x7F]+$/.test(control.value) || !control.value ? null : { ascii: true };
   }
 }

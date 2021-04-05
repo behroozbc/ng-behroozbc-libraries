@@ -5,7 +5,9 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build-prod-validators": "ng b validators --prod",
     "test": "ng test",
+    "test-validators": "ng test validators --browsers EdgeHeadless",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
