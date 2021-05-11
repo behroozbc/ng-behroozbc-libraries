@@ -28,6 +28,9 @@ describe('AdditionalValidators', () => {
     expect(AdditionalValidators.PhoneNumber(new FormControl('0939708257s'))).not.toBeNull();
     expect(AdditionalValidators.PhoneNumber(new FormControl('0939708257س'))).not.toBeNull();
   });
+  it('Not Validate Phone Number start with nine', () => {
+    expect(AdditionalValidators.PhoneNumber(new FormControl('9397082572'))).not.toBeNull();
+  });
   it('Not Validate Phone Number have phoneNumber object', () => {
     expect(AdditionalValidators.PhoneNumber(new FormControl('0931'))).toBeDefined('phoneNumber');;
   });

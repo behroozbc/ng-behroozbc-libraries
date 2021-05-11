@@ -1,1 +1,0 @@
-this package is validator for angular 
