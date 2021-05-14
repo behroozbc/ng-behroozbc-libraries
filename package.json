@@ -5,13 +5,14 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:copy-files": "cp README.md dist/ngx-sweetalert2 && cp LICENSE.txt dist/ngx-sweetalert2",
     "build-prod-validators": "ng b validators --prod",
     "test": "ng test",
     "test-validators": "ng test validators --browsers EdgeHeadless",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@angular/animations": "~11.2.8",
     "@angular/common": "~11.2.8",
