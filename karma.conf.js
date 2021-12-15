@@ -32,6 +32,12 @@ module.exports = function (config) {
         { type: 'text-summary' }
       ]
     },
+    customLaunchers: {
+      EdgeHeadlessCI: {
+        base: "EdgeHeadless",
+        flags: ["--no-sandbox"],
+      }
+    },
     reporters: ['progress', 'kjhtml'],
     port: 9876,
     colors: true,
@@ -40,11 +46,5 @@ module.exports = function (config) {
     browsers: ['Edge','EdgeHeadlessCI'],
     singleRun: false,
     restartOnFileChange: true,
-    customLaunchers: {
-      EdgeHeadlessCI: {
-        base: "EdgeHeadless",
-        flags: ["--no-sandbox"],
-      },
-    },
   });
 };
