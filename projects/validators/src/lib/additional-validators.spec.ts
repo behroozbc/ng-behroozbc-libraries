@@ -64,4 +64,21 @@ describe('AdditionalValidators', () => {
   it('Validate CheckIsASCII mix string', () => {
     expect(AdditionalValidators.CheckIsASCII(new FormControl('sdsad4355443sasdasd@dff$$ssd'))).toBeNull();
   });
+  it('Validate Only Integer number', () => {
+    expect(AdditionalValidators.OnlyIntegerNumber(new FormControl('55'))).toBeNull();
+  });
+  it('Validate Only Integer number float number', () => {
+    expect(AdditionalValidators.OnlyIntegerNumber(new FormControl('3.14'))).not.toBeNull();
+  });
+  it('Validate Only Integer alpabet string', () => {
+    expect(AdditionalValidators.OnlyIntegerNumber(new FormControl('aa'))).not.toBeNull();
+    expect(AdditionalValidators.OnlyIntegerNumber(new FormControl('c'))).not.toBeNull();
+  });
+  it('Validate Only Integer symbole string', () => {
+    expect(AdditionalValidators.OnlyIntegerNumber(new FormControl('a$a'))).not.toBeNull();
+    expect(AdditionalValidators.OnlyIntegerNumber(new FormControl('//d//45 24'))).not.toBeNull();
+  });
+  it('Validate Only Integer be empty', () => {
+    expect(AdditionalValidators.OnlyIntegerNumber(new FormControl(''))).toBeNull();
+  });
 });
