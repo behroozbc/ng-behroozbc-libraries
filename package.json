@@ -9,7 +9,7 @@
     "build:prod-validators": "ng b validators --configuration production",
     "test": "ng test",
     "test-validators": "ng test validators --browsers EdgeHeadless",
-    "test:validators:github": "ng test validators -- --no-watch --no-progress --browsers EdgeHeadless",
+    "test:validators:github": "ng test validators --no-watch --no-progress browsers=EdgeHeadlessCI",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },

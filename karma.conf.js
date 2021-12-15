@@ -39,6 +39,12 @@ module.exports = function (config) {
     autoWatch: true,
     browsers: ['Edge'],
     singleRun: false,
-    restartOnFileChange: true
+    restartOnFileChange: true,
+    customLaunchers: {
+      EdgeHeadlessCI: {
+        base: "EdgeHeadless",
+        flags: ["--no-sandbox"],
+      },
+    },
   });
 };
